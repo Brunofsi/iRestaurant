@@ -1,5 +1,5 @@
 # iRestaurant
- Um sistema de pedido simples para restaurantes
+ Um sistema de pedido online simples para restaurantes
 
 
 # Tecnologias utilizadas
