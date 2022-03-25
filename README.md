@@ -7,7 +7,7 @@
    - Java 12
    - Hibernate
    - Spring (Web, Boot, Data JPA)
-   - Mysql
+   - Postgresql
 
 # Historias
 
