@@ -15,7 +15,7 @@ public class ValidadorCnpj {
         int sm, i, r, num, peso;
 
         // "try" - protege o código para eventuais erros de conversao de tipo (int)
-        try {
+
             // Calculo do 1o. Digito Verificador
             sm = 0;
             peso = 2;
@@ -23,7 +23,7 @@ public class ValidadorCnpj {
                 // converte o i-ésimo caractere do CNPJ em um número:
                 // por exemplo, transforma o caractere '0' no inteiro 0
                 // (48 eh a posição de '0' na tabela ASCII)
-                num = (int) (CNPJ.charAt(i) - 48);
+                num = CNPJ.charAt(i) - 48;
                 sm = sm + (num * peso);
                 peso = peso + 1;
                 if (peso == 10)
@@ -58,9 +58,6 @@ public class ValidadorCnpj {
                 return (true);
             else
                 return (false);
-        } catch (InputMismatchException erro) {
-            return (false);
-        }
     }
 
     private String removeCaracteresEspeciais(String doc) {
