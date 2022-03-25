@@ -28,11 +28,11 @@ public class ConsultaCardapioRestauranteUseCaseImpl implements IConsultaCardapio
     }
 
     @Override
-    public Either<ErroApi, ConsultaCardapioRestauranteResponse> consultaCardapioRestaurante(String uuidLoja) {
-        List<Erro> erros = validador.valida(uuidLoja);
+    public Either<ErroApi, ConsultaCardapioRestauranteResponse> consultaCardapioRestaurante(String uuidRestaurante) {
+        List<Erro> erros = validador.valida(uuidRestaurante);
         if( ! erros.isEmpty() ) return Either.left(new ErroApiMensagemInvalida("Mensagem Invalida", "Um ou mais propriedades estão inválidas, por for corrija-as.", erros));
-        Optional<Cardapio> catalogoLoja = repositorioCardapio.findById(UUID.fromString(uuidLoja));
-        if(catalogoLoja.isEmpty()) return Either.left(new ErroApiEntidadeNaoEncontrada("Catalogo loja nao encontrado", "Nao foi encontrado um catalogo loja com UUID " + uuidLoja, List.of()));
-        return Either.right(new ConsultaCardapioRestauranteResponse(catalogoLoja.get()));
+        Optional<Cardapio> cardapioRestaurante = repositorioCardapio.findById(UUID.fromString(uuidRestaurante));
+        if(cardapioRestaurante.isEmpty()) return Either.left(new ErroApiEntidadeNaoEncontrada("Cardapio restaurante nao encontrado", "Nao foi encontrado um cardapio restaurante com UUID " + uuidRestaurante, List.of()));
+        return Either.right(new ConsultaCardapioRestauranteResponse(cardapioRestaurante.get()));
     }
 }

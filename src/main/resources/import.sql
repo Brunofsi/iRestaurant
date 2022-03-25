@@ -9,6 +9,5 @@ insert into opcao_produto (id, grupo_opcao_produto_id, nome, descricao, preco) v
 
 
 
-insert into pedido (id, restaurante_id, cliente_id, feedback_cliente, data_criacao, valor_sub_total, valor_frete, valor_total)
-       values ('9df5b1f5-c7a3-436e-9771-3115af01a6cf', '10ad614a-adf5-4725-9fbb-1be4685a8888', 'fb31f557-2e9d-4295-a9c1-4a7a2a7fa387',
-               5, NOW(), 87.90, 0.00, 87.90);
+-- insert into pedido (id, restaurante_id, cliente_id, feedback_cliente, data_criacao, valor_sub_total, valor_frete, valor_total)
+--        values ('9df5b1f5-c7a3-436e-9771-3115af01a6cf', '10ad614a-adf5-4725-9fbb-1be4685a8888', 'fb31f557-2e9d-4295-a9c1-4a7a2a7fa387', 5, NOW(), 87.90, 0.00, 87.90);

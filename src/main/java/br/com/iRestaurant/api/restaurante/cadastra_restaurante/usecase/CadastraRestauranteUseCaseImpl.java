@@ -35,7 +35,7 @@ public class CadastraRestauranteUseCaseImpl implements ICadastraRestauranteUseCa
     @Override
     public Either<ErroApi, CadastroRestauranteResponse> executa(CadastroRestauranteRequest request) {
         List<ErroApi.Erro> erros = request.valida(validador);
-        if(! erros.isEmpty()) return Either.left(new ErroApiMensagemInvalida("Mensagem Invalida", "Um ou mais propriedades estão inválidas, por for corrija-as.", erros)); // valida mensagem - 400
+        if(! erros.isEmpty()) return Either.left(new ErroApiMensagemInvalida("Mensagem Invalida", "Um ou mais propriedades estão inválidas, por favor corrija-as.", erros)); // valida mensagem - 400
         Optional<Dono> donoRestaurante = donoRepositorio.findById(request.getIdDono());
         if(donoRestaurante.isEmpty()) return Either.left(new ErroApiEntidadeNaoProcessavel("Restaurante nao cadastravel", "Nao foi encontrado nenhum dono com o id mencionado", List.of()));
         if(restauranteRepositorio.existsByCnpj(request.getCnpj())) return Either.left(new ErroApiEntidadeConflituante("Restaurante conflituante", "Já existe em nossa base um restaurante atrelado ao CNPJ mencionado.", List.of()));
